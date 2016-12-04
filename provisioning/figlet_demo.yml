@@ -12,5 +12,5 @@
       yum: name={{item}} state=latest
       with_items:
           - figlet
-    - name: figlet name
+    - name: execute figlet module
       shell: "figlet figlet_demo | sudo tee -a /etc/motd"
