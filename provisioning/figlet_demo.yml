@@ -1,0 +1,16 @@
+---
+- hosts: vagrants
+  sudo: true
+  user: vagrant
+  tasks:
+    - name: yum install epel-release, deltarpm
+      yum: name={{item}} state=latest
+      with_items:
+        - epel-release.noarch
+        - deltarpm
+    - name: yum install packages
+      yum: name={{item}} state=latest
+      with_items:
+          - figlet
+    - name: figlet name
+      shell: "figlet figlet_demo | sudo tee -a /etc/motd"
